@@ -13,7 +13,7 @@ dominio, aplicación, infraestructura y delivery.
 - Agentes para arquitectura, coordinación, planificación, implementación y revisión.
 - Flujo Spec-Driven Development (SDD) con aprobaciones explícitas.
 - Skills de arquitectura, seguridad y testing.
-- Comandos `/architecture`, `/feature`, `/review` y `/sdd`.
+- Comandos `/architecture`, `/feature`, `/review`, `/sdd` y `/extension`.
 - Documentación de principios y permisos.
 - Instaladores remotos para Windows, macOS y Linux.
 
@@ -39,6 +39,7 @@ El instalador copia:
 AGENTS.md
 docs/
 .opencode/
+templates/
 ```
 
 No copia dependencias locales, configuraciones globales, credenciales ni
@@ -46,9 +47,9 @@ archivos de GitHub Actions.
 
 ## Conflictos
 
-Por defecto, la instalación se detiene si alguno de los archivos ya existe.
-Para sobrescribirlos explícitamente, descarga el script y ejecútalo con
-`-Force` en PowerShell o `--force` en macOS/Linux.
+Por defecto, la instalación conserva los archivos que ya existen y copia solo
+los archivos nuevos. Para sobrescribir archivos base explícitamente, descarga
+el script y ejecútalo con `-Force` en PowerShell o `--force` en macOS/Linux.
 
 ### Windows con sobrescritura
 
@@ -74,7 +75,9 @@ rm -f "$installer"
 ├── AGENTS.md
 ├── docs/
 │   ├── Constitution.md
-│   └── architecture/
+│   ├── architecture/
+│   └── extending.md
+├── templates/
 └── .opencode/
     ├── agents/
     ├── commands/
@@ -96,6 +99,22 @@ Después de instalar, reinicia OpenCode para cargar los cambios.
 
 Para cambios relevantes, el flujo SDD requiere aprobar primero `specs.md` y,
 posteriormente, `plan.md` junto con `tasks.md`.
+
+## Extensiones locales
+
+El toolkit no incluye las extensiones específicas que cada proyecto pueda
+necesitar. En su lugar, proporciona `/extension` para crear skills, agents y
+commands dentro del proyecto activo:
+
+```text
+/extension skill scoring
+/extension agent database-reviewer
+/extension command deploy
+```
+
+Las extensiones se crean en `.opencode/` del proyecto consumidor y no se
+publican ni sincronizan automáticamente con este repositorio. El instalador
+preserva archivos locales adicionales durante las actualizaciones.
 
 ## Compatibilidad
 

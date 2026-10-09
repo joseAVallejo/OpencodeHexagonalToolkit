@@ -12,7 +12,8 @@ function Get-InstallFiles {
     return @(
         'AGENTS.md',
         'docs',
-        '.opencode'
+        '.opencode',
+        'templates'
     )
 }
 
@@ -60,16 +61,20 @@ try {
     $conflicts = @($sourceFiles | Where-Object { Test-Path -LiteralPath (Join-Path $target $_) })
 
     if ($conflicts.Count -gt 0 -and -not $Force) {
-        Write-Host 'La instalación se detuvo porque existen archivos en el destino:' -ForegroundColor Yellow
+        Write-Host 'Se conservarán los archivos existentes en el destino:' -ForegroundColor Yellow
         $conflicts | ForEach-Object { Write-Host "  $_" }
-        Write-Host 'Vuelve a ejecutar con -Force para sobrescribirlos.' -ForegroundColor Yellow
-        exit 2
+        Write-Host 'Usa -Force para sobrescribirlos explícitamente.' -ForegroundColor Yellow
     }
 
-    foreach ($entry in $entries) {
-        $sourcePath = Join-Path $source.FullName $entry
-        $targetPathEntry = Join-Path $target $entry
-        Copy-Item -LiteralPath $sourcePath -Destination $targetPathEntry -Recurse -Force
+    foreach ($relativeFile in $sourceFiles) {
+        $targetFile = Join-Path $target $relativeFile
+        if ((Test-Path -LiteralPath $targetFile) -and -not $Force) {
+            continue
+        }
+
+        $targetDirectory = Split-Path -Parent $targetFile
+        New-Item -ItemType Directory -Force -Path $targetDirectory | Out-Null
+        Copy-Item -LiteralPath (Join-Path $source.FullName $relativeFile) -Destination $targetFile -Force
     }
 
     Write-Host "OpenCode Toolkit instalado en $target" -ForegroundColor Green

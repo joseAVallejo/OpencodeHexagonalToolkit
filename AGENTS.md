@@ -32,6 +32,12 @@ The generic architecture reference is `docs/architecture/hexagonal.md`.
 Discover and use the repository's documented build, test and publish commands.
 Run focused tests first, then the relevant full validation command.
 
+## Local Extensions
+
+Use `/extension` to create project-specific skills, agents or commands. Keep
+those extensions in the active project and read `docs/extending.md` before
+creating them. Do not assume a local extension belongs in the shared toolkit.
+
 ## Spec-Driven Development
 
 New features and significant functional changes follow `.opencode/skills/sdd/SKILL.md`.
