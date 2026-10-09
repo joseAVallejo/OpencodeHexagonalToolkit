@@ -3,8 +3,6 @@
 Document every permission introduced or changed by a feature and record its
 frontend/backend locations, protected operation and policy reference.
 
-## Template
-
 ```markdown
 ## PERMISSION.NAME
 ### Client

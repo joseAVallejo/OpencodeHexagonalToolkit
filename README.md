@@ -39,11 +39,7 @@ El instalador copia:
 AGENTS.md
 docs/
 .opencode/
-templates/
 ```
-
-No copia dependencias locales, configuraciones globales, credenciales ni
-archivos de GitHub Actions.
 
 ## Conflictos
 
@@ -77,7 +73,6 @@ rm -f "$installer"
 │   ├── Constitution.md
 │   ├── architecture/
 │   └── extending.md
-├── templates/
 └── .opencode/
     ├── agents/
     ├── commands/

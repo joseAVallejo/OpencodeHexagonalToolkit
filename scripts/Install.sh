@@ -70,7 +70,7 @@ tar -xzf "$ARCHIVE" -C "$EXTRACT"
 SOURCE_DIR="$(find "$EXTRACT" -mindepth 1 -maxdepth 1 -type d -print -quit)"
 [ -n "$SOURCE_DIR" ] || { printf '%s\n' 'No se encontró el contenido descargado.' >&2; exit 1; }
 
-FILES="$(find "$SOURCE_DIR/AGENTS.md" "$SOURCE_DIR/docs" "$SOURCE_DIR/.opencode" "$SOURCE_DIR/templates" -type f -print | sed "s#^$SOURCE_DIR/##")"
+FILES="$(find "$SOURCE_DIR/AGENTS.md" "$SOURCE_DIR/docs" "$SOURCE_DIR/.opencode" -type f -print | sed "s#^$SOURCE_DIR/##")"
 CONFLICTS=""
 while IFS= read -r file; do
     [ -n "$file" ] || continue

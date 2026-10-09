@@ -29,9 +29,6 @@ de crear archivos.
         └── SKILL.md
 ```
 
-Las plantillas reutilizables están en `templates/`. No se cargan como
-extensiones porque están fuera de los directorios que OpenCode escanea.
-
 ## Tipos
 
 ### Skill
