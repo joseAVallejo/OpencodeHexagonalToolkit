@@ -106,4 +106,11 @@ posteriormente, `plan.md` junto con `tasks.md`.
 
 ## Licencia
 
-Añade la licencia que corresponda al publicar o distribuir este toolkit.
+Este repositorio se distribuye bajo la licencia
+[PolyForm Noncommercial 1.0.0](LICENSE).
+
+Se permite el uso, modificación y redistribución con fines no comerciales,
+conservando el aviso de copyright y la licencia. No se permite el uso
+comercial del toolkit ni de obras derivadas basadas en su contenido.
+
+Copyright (c) 2026 Jose A. Vallejo.
