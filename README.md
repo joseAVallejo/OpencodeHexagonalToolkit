@@ -9,7 +9,7 @@ dominio, aplicación, infraestructura y delivery.
 
 ## Que incluye
 
-- Arquitectura hexagonal y dirección de dependencias.
+- Arquitectura hexagonal, puertos, adaptadores y dirección de dependencias.
 - Agentes para arquitectura, coordinación, planificación, implementación y revisión.
 - Flujo Spec-Driven Development (SDD) con aprobaciones explícitas.
 - Skills de arquitectura, seguridad y testing.

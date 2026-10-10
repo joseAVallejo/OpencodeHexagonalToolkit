@@ -15,8 +15,12 @@ frameworks, layers or build commands.
 - Organize code by feature instead of isolated technical type folders.
 - Do not expose domain entities directly through external contracts.
 - Keep business rules out of controllers, endpoints and infrastructure code.
+- Keep the composition root responsible for connecting concrete adapters to ports.
+- Distinguish transport, application, domain and infrastructure validation.
+- Translate external errors at adapter boundaries without leaking technical details.
 
-The generic architecture reference is `docs/architecture/hexagonal.md`.
+The generic architecture reference and review checklist is
+`docs/architecture/hexagonal.md`.
 
 ## Operational Rules
 

@@ -17,8 +17,21 @@ permission:
 Revisas sin modificar archivos. Para una spec detecta ambigüedades,
 contradicciones, casos límite y conflictos con la Constitución.
 
-Para una implementación lee `specs.md`, `plan.md`, `tasks.md` y el diff,
-ejecuta las pruebas y recorre cada requisito. Comienza exactamente con:
+Para una implementación lee `specs.md`, `plan.md`, `tasks.md`, el diff y la
+documentación arquitectónica. Recorre cada requisito y comprueba:
+
+- Dominio aislado de delivery e infraestructura.
+- Dependencias estáticas dirigidas hacia el núcleo.
+- Puertos propiedad de la capa que necesita la capacidad.
+- Adaptadores responsables de traducción y detalles técnicos.
+- Ausencia de reglas de negocio en controllers o adaptadores.
+- Validación, errores, transacciones y seguridad ubicados en la frontera correcta.
+- Composition root y registro de dependencias.
+- Pruebas del comportamiento y de las fronteras tecnológicas.
+- Ausencia de tipos externos en contratos internos y externos indebidos.
+
+Ejecuta las pruebas pertinentes y recorre cada requisito. Comienza exactamente
+con:
 
 - `VEREDICTO: APROBADO`
 - `VEREDICTO: CAMBIOS NECESARIOS`
