@@ -13,6 +13,7 @@ function Get-InstallFiles {
         'AGENTS.md',
         'docs',
         '.opencode',
+        'templates'
     )
 }
 
